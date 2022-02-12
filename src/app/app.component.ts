@@ -7,8 +7,9 @@ import { WeatherService } from './services/weather.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  weather!: any;
+  weather: any;
   city!: string;
+  country!: string;
 
   constructor(public weatherService: WeatherService) {}
 
@@ -26,11 +27,14 @@ export class AppComponent implements OnInit {
   }
 
   submitLocation(cityName: HTMLInputElement) {
-    console.log(cityName.value);
+    if (cityName.value) {
+      this.getWeather(cityName.value);
 
-    this.getWeather(cityName.value);
-
-    cityName.value = '';
+      cityName.value = '';
+      console.log(cityName.value);
+    } else {
+      alert('Please, enter a city name');
+    }
 
     cityName.focus();
 

@@ -1,9 +1,19 @@
-<div class="container p-4">
+<div class="container p-5">
   <div class="row">
     <div class="col-md-6">
-      <div class="card card-body">
+      <div class="card border-dark card-body">
         <form (submit)="submitLocation(cityName)">
           <div class="form-group">
+            <img
+              width="150"
+              src="../assets/weather-img.png"
+              alt="weather-img"
+            />
+            <img
+              width="150"
+              src="../assets/weather-img.png"
+              alt="weather-img"
+            />
             <img
               width="150"
               src="../assets/weather-img.png"
@@ -18,16 +28,72 @@
               #cityName
             />
           </div>
-          <button class="btn btn-primary btn-block mt-5">GET WEATHER</button>
+
+          <div class="d-grid gap-2 mt-4">
+            <button class="btn btn-lg btn-primary" type="button">
+              GET WEATHER
+            </button>
+          </div>
         </form>
       </div>
     </div>
     <div class="col-md-6">
-      <div *ngIf="weather" class="card card-body">
-        <h1 class="text-center">{{ city }}</h1>
+      <div *ngIf="weather" class="card border-dark card-body">
+        <h2 class="text-center" style="text-transform: uppercase">
+          {{ city }}, <strong>{{ weather.sys.country }}</strong
+          >.
+        </h2>
+        <p>Latitude: {{ weather.coord.lat }}</p>
+        <p>Longitude: {{ weather.coord.lon }}</p>
         <p>Temperature: {{ weather.main.temp }}</p>
-        <p>Temperature Sensation: {{ weather.main.feels_like }}</p>
+        <p>Temp Max: {{ weather.main.temp_max }}</p>
+        <p>Temp Min: {{ weather.main.temp_min }}</p>
+        <p>Humidity: {{ weather.main.humidity }}%</p>
       </div>
     </div>
   </div>
+  <footer class="page-footer font-small blue pt-4">
+    <div class="container-fluid text-center text-md-left">
+      <div class="row">
+        <div class="col-md-6 mt-md-0 mt-3">
+          <h5 class="text-uppercase">David Cicconi</h5>
+          <p>Web Developer. Rosario, Argentina.</p>
+        </div>
+        <hr class="clearfix w-100 d-md-none pb-3" />
+        <div class="col-md-3 mb-md-0 mb-3">
+          <h5 class="text-uppercase">Proyects</h5>
+          <ul class="list-unstyled">
+            <li>
+              <!-- links -->
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-md-0 mb-3">
+          <!-- Links -->
+          <h5 class="text-uppercase">Social Medias</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Link 1</a>
+            </li>
+            <li>
+              <a href="#!">Link 2</a>
+            </li>
+          </ul>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2022 Copyright</div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
 </div>
