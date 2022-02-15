@@ -3,3 +3,12 @@ footer {
   margin-top: 200px;
   bottom: 0;
 }
+
+li a {
+  text-decoration: none;
+}
+
+img {
+  display: flex;
+  margin: auto;
+}
